@@ -1,0 +1,17 @@
+# Java / Maven
+target/
+*.class
+*.jar
+.mvn/
+
+# Node / Frontend
+node_modules/
+dist/
+.env.local
+.eslintcache
+
+# IDE / System
+.idea/
+.vscode/
+*.iml
+.DS_Store
