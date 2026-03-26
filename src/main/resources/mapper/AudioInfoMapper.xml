@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.listen_to_me.mapper.AudioInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.github.listen_to_me.domain.entity.AudioInfo">
+        <id column="id" property="id" />
+        <result column="creator_id" property="creatorId" />
+        <result column="title" property="title" />
+        <result column="cover_url" property="coverUrl" />
+        <result column="raw_path" property="rawPath" />
+        <result column="hls_path" property="hlsPath" />
+        <result column="price" property="price" />
+        <result column="trial_duration" property="trialDuration" />
+        <result column="audit_status" property="auditStatus" />
+        <result column="status" property="status" />
+        <result column="view_count" property="viewCount" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, creator_id, title, cover_url, raw_path, hls_path, price, trial_duration, audit_status, status, view_count, create_time
+    </sql>
+
+</mapper>

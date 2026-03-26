@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: listen-to-me
+
+  datasource:
+    url: jdbc:mysql://119.6.59.115:10041/listen-to-me?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: app
+    password: "-j%Tic{50BxLC73"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+      schema-locations: classpath:schema.sql
+      encoding: UTF-8
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.github.listen-to-me.domain.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    root: warn
+    com.example.rednote: debug
+  pattern:
+    console: "-----------------%n%d{HH:mm:ss} | %highlight(%-4level) | %-15.15thread | %logger.%M |%n%msg%n-----------------%n"
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+    # NOTE: 不关闭这个功能在注册全局异常处理器时会报 NoSuchMethodError
+  override-with-generic-response: false
+
+  default-produces-media-type: application/json
+  group-configs:
+    - group: "公共接口"
+      paths-to-match: "/api/common/**"
+      packages-to-scan: com.github.listen_to_me.controller.common
+    - group: "用户相关接口"
+      paths-to-match: "/api/user/**"
+      packages-to-scan: com.github.listen_to_me.controller.user
+    - group: "创作者相关接口"
+      paths-to-match: "/api/creator/**"
+      packages-to-scan: com.github.listen_to_me.controller.creator
+    - group: "管理员相关接口"
+      paths-to-match: "/api/admin/**"
+      packages-to-scan: com.github.listen_to_me.controller.admin
+
+knife4j:
+  enable: true
+  production: false
+  setting:
+    language: zh_cn
+    enable-version: true
+    enable-swagger-models: true
+    enable-document-manage: true # 开启文档管理功能
+    swagger-model-name: 数据模型定义
+
+jwt:
+  secret: your-secure-32-character-secret-key-here
+  expiration: 86400000 # 24 小时
+
+# 文件上传配置
+file:
+  upload:
+    path: ./uploads
+    url-prefix: http://localhost:8080/uploads

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.listen_to_me.mapper.OrderInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.github.listen_to_me.domain.entity.OrderInfo">
+        <id column="id" property="id" />
+        <result column="order_sn" property="orderSn" />
+        <result column="user_id" property="userId" />
+        <result column="audio_id" property="audioId" />
+        <result column="pay_amount" property="payAmount" />
+        <result column="pay_status" property="payStatus" />
+        <result column="pay_channel" property="payChannel" />
+        <result column="pay_time" property="payTime" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, order_sn, user_id, audio_id, pay_amount, pay_status, pay_channel, pay_time, create_time
+    </sql>
+
+</mapper>
